@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Shop Home</title>{% endblock title %}
+
+{% block content %}
+<h1>Welcome to Flex's Shop</h1>
+
+{% if products %}
+<div class="row">
+	{% for product in products %}
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-title">
+				{{ product.title }}
+			</div>
+			<div class="card-body">
+				<img class="img-fluid" src="{{product.image.url}}">
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% else %}
+	<div class="row">
+		no products currently available
+	</div>
+{% endif %}
+
+{% endblock content %}
